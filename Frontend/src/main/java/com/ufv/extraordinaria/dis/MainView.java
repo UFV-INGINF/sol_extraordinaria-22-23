@@ -47,9 +47,11 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
+
+    ArrayList<Spaceship> spaceshipArrayList = new ArrayList<Spaceship>();
+
     public MainView(@Autowired SWService service) throws URISyntaxException, IOException, InterruptedException {
 
-        ArrayList<Spaceship> spaceshipArrayList = new ArrayList<Spaceship>();
 
         // Use TextField for standard text input
         TextField textField = new TextField("Page");
@@ -68,9 +70,11 @@ public class MainView extends VerticalLayout {
         grid.addColumn(
                 new NativeButtonRenderer<>("Remove item",
                         clickedItem -> {
-                    grid.setItems(Methods.deleteItems(spaceshipArrayList, clickedItem));
-//                        System.out.println(clickedItem);
-                            // remove the item
+                            // Llamada al método de eliminar
+                            ArrayList<Spaceship> listWithoutDeleted = Methods.deleteItems(spaceshipArrayList, clickedItem);
+                            spaceshipArrayList = listWithoutDeleted;
+                            grid.setItems(listWithoutDeleted);
+
                         })
         );
 
