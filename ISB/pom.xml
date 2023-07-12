@@ -10,7 +10,7 @@
     </parent>
     <groupId>es.ufv.dis.final_extraordinaria2022</groupId>
     <artifactId>ISB</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>ISB</name>
     <description>API solution for extraordinaria 2022</description>
     <properties>
